@@ -1,0 +1,163 @@
+alexis@alexis-HP-1000-Notebook-PC:~$ git --version
+git version 1.9.1
+alexis@alexis-HP-1000-Notebook-PC:~$ ls
+build-untitled-Desktop_Qt_5_4_1_GCC_64bit-Debug  Imágenes    untitled
+Descargas                                        Música      Vídeos
+Documentos                                       Plantillas  workspace
+Escritorio                                       Público
+examples.desktop                                 Qt
+alexis@alexis-HP-1000-Notebook-PC:~$ mkdir TEST
+alexis@alexis-HP-1000-Notebook-PC:~$ ls
+build-untitled-Desktop_Qt_5_4_1_GCC_64bit-Debug  Imágenes    TEST
+Descargas                                        Música      untitled
+Documentos                                       Plantillas  Vídeos
+Escritorio                                       Público     workspace
+examples.desktop                                 Qt
+alexis@alexis-HP-1000-Notebook-PC:~$ cd TEST
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ ls
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git init
+Initialized empty Git repository in /home/alexis/TEST/.git/
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ ls -l
+total 0
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ vi hola.txt
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git add hola.txt
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git commit
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'alexis@alexis-HP-1000-Notebook-PC.(none)')
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git config --global user.mail alexis@dormilon.com
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git config --global user.name Alexis
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git commit
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'alexis@alexis-HP-1000-Notebook-PC.(none)')
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git config --global user.mail "alexis@dormilon.com"
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git config --global user.name "Alexis"alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git commit
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'alexis@alexis-HP-1000-Notebook-PC.(none)')
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git config --global user.email "alexis@dormilon.com"
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git commit
+Aborting commit due to empty commit message.
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git commit -m "Mi primer commit"
+[master (root-commit) 67cb3a8] Mi primer commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hola.txt
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git log
+commit 67cb3a8f7efd49720f959ef91dda3579c06e6fed
+Author: Alexis <alexis@dormilon.com>
+Date:   Wed May 20 08:59:19 2015 -0500
+
+    Mi primer commit
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git remote add origin https://github.com/alxs1596/TEST.git
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git push -u origin master
+Username for 'https://github.com': alxs1596
+Password for 'https://alxs1596@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/alxs1596/TEST.git/'
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git push -u origin master
+Username for 'https://github.com': alxs1596
+Password for 'https://alxs1596@github.com': 
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 224 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/alxs1596/TEST.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ ls -a
+.  ..  .git  hola.txt
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ cd .git
+alexis@alexis-HP-1000-Notebook-PC:~/TEST/.git$ ls
+branches        config       HEAD   index  logs     refs
+COMMIT_EDITMSG  description  hooks  info   objects
+alexis@alexis-HP-1000-Notebook-PC:~/TEST/.git$ cd ..
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ ls
+hola.txt
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git commit -m "En serio"
+En la rama master
+Your branch is up-to-date with 'origin/master'.
+
+Cambios no preparados para el commit:
+	modificado: hola.txt
+
+Archivos sin seguimiento:
+	hola.txt~
+
+no hay cambios agregados al commit
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git add 
+No se ha especificado nada, no hay nada que añadir.
+¿Quizá quiera decir «git add .»?
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git add *
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git commit -m "En serio"
+[master 6eb3cf7] En serio
+ 2 files changed, 5 insertions(+)
+ create mode 100644 hola.txt~
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+In Git 2.0, Git will default to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Username for 'https://github.com': alxs1596
+Password for 'https://alxs1596@github.com': 
+Counting objects: 5, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 372 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/alxs1596/TEST.git
+   67cb3a8..6eb3cf7  master -> master
+alexis@alexis-HP-1000-Notebook-PC:~/TEST$ git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+De https://github.com/alxs1596/TEST
+   6eb3cf7..99617f7  master     -> origin/master
+Updating 6eb3cf7..99617f7
+Fast-forward
+ hola.txt | 1 +
+ 1 file changed, 1 insertion(+)
